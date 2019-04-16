@@ -31,5 +31,16 @@
 				return $strmt;
 			}
 	      
+               public function list_interested()
+            {
+               	$query = "SELECT * FROM ".$this->table2." WHERE interested = '".$this->interested."'";
+
+                $stmt=mysqli_query($this->conn,$query);
+                return $stmt;
+
+
+            }
+
+
 		}
 	?>
