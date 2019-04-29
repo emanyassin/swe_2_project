@@ -33,6 +33,18 @@
 					   	$strmt=mysqli_query($this->conn,$query);
 			   	return $strmt;
 			}
+            public function add_formula(){
+				$query = "INSERT INTO ".$this->table." (name, categry, formula) VALUES ('".$this->name."','".$this->categry."','".$this->formula."')";
+				//clean
+				$this->name= htmlspecialchars(strip_tags($this->name));
+				$this->categry= htmlspecialchars(strip_tags($this->categry));
+				$this->formula= htmlspecialchars(strip_tags($this->formula));
+				if(mysqli_query($this->conn,$query)){
+					return true;
+				}
+				printf("Error : %s.\n",$stmt->error);
+				return false;
+			}
           public function display(){
 						  	$query = 'SELECT * FROM '.$this->table2.'';
 						  	$strmt=mysqli_query($this->conn,$query);
