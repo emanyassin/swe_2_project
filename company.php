@@ -33,6 +33,12 @@
 					   	$strmt=mysqli_query($this->conn,$query);
 			   	return $strmt;
 			}
+            public function list_interested()
+            {
+               	$query = "SELECT * FROM ".$this->table3." WHERE rec_interested = '".$this->rec_interested."'";
+                $stmt=mysqli_query($this->conn,$query);
+                return $stmt;
+            }
             public function add_formula(){
 				$query = "INSERT INTO ".$this->table." (name, categry, formula) VALUES ('".$this->name."','".$this->categry."','".$this->formula."')";
 				//clean
